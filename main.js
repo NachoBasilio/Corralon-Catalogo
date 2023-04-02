@@ -8,24 +8,24 @@ const homeLink = document.getElementById("home-link"); // Obtener el enlace "hom
 const catalogoLink = document.getElementById("catalogo-link"); // Obtener el enlace "catálogo"
 const nosotrosLink = document.getElementById("nosotros-link"); // Obtener el enlace "nosotros"
 const contactoLink = document.getElementById("contacto-link"); // Obtener el enlace "contacto"
-const contenido = document.getElementById("app"); // Obtener el elemento donde se cargará el contenido
+
 
 function cargarContenido(ruta) {
   switch (ruta) {
     case "home":
-      contenido.innerHTML = Home(); // Cargar la página "Home"
+      Home(); // Cargar la página "Home"
       break;
     case "catalogo":
-      contenido.innerHTML = Catalogo(); // Cargar la página "Catálogo"
+      Catalogo(); // Cargar la página "Catálogo"
       break;
     case "nosotros":
-      contenido.innerHTML = Nosotros(); // Cargar la página "Nosotros"
+      Nosotros(); // Cargar la página "Nosotros"
       break;
     case "contacto":
-      contenido.innerHTML = Contacto(); // Cargar la página "Contacto"
+      Contacto(); // Cargar la página "Contacto"
       break;
     default:
-      contenido.innerHTML = Default(); // Cargar la página "Default"
+      Default(); // Cargar la página "Default"
   }
   window.history.pushState({ ruta }, null, ruta); // Agregar la ruta al historial de navegación
 }

@@ -1,3 +1,5 @@
+const contenido = document.getElementById("app"); // Obtener el elemento donde se cargará el contenido
+
 export default function(){
-    return "<h1>Catalogo<h1>"
+    contenido.innerHTML = "<h1>Catalogo<h1>"
 }
