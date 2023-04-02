@@ -13,10 +13,10 @@ function cargarContenido(ruta) {
       contenido.innerHTML = "<h1>Este es nuestro catálogo de productos</h1>";
       break;
     case "nosotros":
-      contenido.innerHTML = "<h1>Conócenos un poco más</h1>";
+      contenido.innerHTML = "<h1>Conócenos un poco más!</h1>";
       break;
     case "contacto":
-      contenido.innerHTML = "<h1>Contacta con nosotros</h1>";
+      contenido.innerHTML = "<h1>Contacta con nosotros!</h1>";
       break;
     default:
       contenido.innerHTML = "<h1>Ruta no válida</h1>";
