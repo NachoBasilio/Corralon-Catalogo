@@ -1,45 +1,50 @@
-import Home from "./pages/Home"; // Importar la página "Home"
-import Catalogo from "./pages/Catalogo"; // Importar la página "Catálogo"
-import Nosotros from "./pages/Nosotros"; // Importar la página "Nosotros"
-import Contacto from "./pages/Contacto"; // Importar la página "Contacto"
-import Default from "./pages/Default"; // Importar la página "Default"
+import Home from "./pages/Home";
+import Catalogo from "./pages/Catalogo";
+import Nosotros from "./pages/Nosotros";
+import Contacto from "./pages/Contacto";
+import Default from "./pages/Default";
 
-const homeLink = document.getElementById("home-link"); // Obtener el enlace "home"
-const catalogoLink = document.getElementById("catalogo-link"); // Obtener el enlace "catálogo"
-const nosotrosLink = document.getElementById("nosotros-link"); // Obtener el enlace "nosotros"
-const contactoLink = document.getElementById("contacto-link"); // Obtener el enlace "contacto"
-
+const homeLink = document.getElementById("home-link");
+const catalogoLink = document.getElementById("catalogo-link");
+const nosotrosLink = document.getElementById("nosotros-link");
+const contactoLink = document.getElementById("contacto-link");
 
 function cargarContenido(ruta) {
   switch (ruta) {
     case "home":
-      Home(); // Cargar la página "Home"
+      Home();
       break;
     case "catalogo":
-      Catalogo(); // Cargar la página "Catálogo"
+      Catalogo();
       break;
     case "nosotros":
-      Nosotros(); // Cargar la página "Nosotros"
+      Nosotros();
       break;
     case "contacto":
-      Contacto(); // Cargar la página "Contacto"
+      Contacto();
       break;
     default:
-      Default(); // Cargar la página "Default"
+      Default();
   }
-  window.history.pushState({ ruta }, null, ruta); // Agregar la ruta al historial de navegación
+}
+
+function manejarRuta() {
+  let ruta = window.location.hash.slice(1); // Elimina el símbolo '#' de la URL
+  cargarContenido(ruta);
 }
 
 // Agregar los eventos de clic a cada enlace del navbar
-homeLink.addEventListener("click", () => cargarContenido("home"));
-catalogoLink.addEventListener("click", () => cargarContenido("catalogo"));
-nosotrosLink.addEventListener("click", () => cargarContenido("nosotros"));
-contactoLink.addEventListener("click", () => cargarContenido("contacto"));
+homeLink.addEventListener("click", () => (window.location.hash = "home"));
+catalogoLink.addEventListener("click", () => (window.location.hash = "catalogo"));
+nosotrosLink.addEventListener("click", () => (window.location.hash = "nosotros"));
+contactoLink.addEventListener("click", () => (window.location.hash = "contacto"));
 
-// Agregar un evento para detectar cuando se presiona el botón "Atrás" o "Adelante" del navegador
-window.addEventListener("popstate", event => {
-  const ruta = event.state?.ruta;
-  if (ruta) {
-    cargarContenido(ruta);
-  }
-});
+// Agregar un evento para detectar cambios en el hash de la URL
+window.addEventListener("hashchange", manejarRuta);
+
+// Establecer la ruta inicial en el historial del navegador y cargar la página correspondiente
+if (!window.location.hash) {
+  window.location.hash = "home";
+} else {
+  manejarRuta();
+}
