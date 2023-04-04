@@ -56,8 +56,28 @@ if (!window.location.hash) {
 document.addEventListener('DOMContentLoaded', () => {
   const menuToggle = document.getElementById('menu-toggle');
   const navMenu = document.getElementById('nav-menu');
+  const header = document.querySelector('header');
+  let lastScrollPosition = 0;
 
-  menuToggle.addEventListener('click', () => {
+  menuToggle.addEventListener('click', (event) => {
+    event.stopPropagation();
     navMenu.classList.toggle('active');
+  });
+
+  document.addEventListener('click', (event) => {
+    if (navMenu.classList.contains('active') && !navMenu.contains(event.target) && !menuToggle.contains(event.target)) {
+      navMenu.classList.remove('active');
+    }
+  });
+
+  document.addEventListener('scroll', () => {
+    const currentScrollPosition = window.pageYOffset;
+
+    if (currentScrollPosition > lastScrollPosition) {
+      header.style.top = '-100%'; // Ocultar la barra de navegación cuando se desplaza hacia arriba
+    } else {
+      header.style.top = '0'; // Mostrar la barra de navegación cuando se desplaza hacia abajo
+    }
+    lastScrollPosition = currentScrollPosition;
   });
 });
