@@ -3,6 +3,7 @@ import Catalogo from "./pages/Catalogo";
 import Nosotros from "./pages/Nosotros";
 import Contacto from "./pages/Contacto";
 import Default from "./pages/Default";
+import "./styles/index.css"
 
 const homeLink = document.getElementById("home-link");
 const catalogoLink = document.getElementById("catalogo-link");

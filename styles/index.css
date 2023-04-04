@@ -1,0 +1,56 @@
+/* Estilos base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background-color: #333;
+  padding: 1rem;
+}
+
+nav {
+  text-align: center;
+}
+
+nav ul {
+  list-style-type: none;
+}
+
+nav li {
+  display: inline;
+  margin: 0 1rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #f1c40f;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  nav li {
+    display: block;
+    margin: 1rem 0;
+  }
+}
+
+
+/* .offLi{
+  color: #a1a1a1;
+}
+
+.onLi{
+  color: fff;
+} */
