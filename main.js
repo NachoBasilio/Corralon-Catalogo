@@ -10,6 +10,8 @@ const catalogoLink = document.getElementById("catalogo-link");
 const nosotrosLink = document.getElementById("nosotros-link");
 const contactoLink = document.getElementById("contacto-link");
 
+
+
 function cargarContenido(ruta) {
   switch (ruta) {
     case "home":
@@ -49,3 +51,13 @@ if (!window.location.hash) {
 } else {
   manejarRuta();
 }
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const menuToggle = document.getElementById('menu-toggle');
+  const navMenu = document.getElementById('nav-menu');
+
+  menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+});

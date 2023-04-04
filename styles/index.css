@@ -1,4 +1,3 @@
-/* Estilos base */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -15,42 +14,67 @@ header {
 }
 
 nav {
-  text-align: center;
+  position: relative;
 }
 
-nav ul {
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.menu-toggle span {
+  display: block;
+  background-color: white;
+  width: 25px;
+  height: 3px;
+  margin: 4px 0;
+}
+
+.nav-menu {
+  text-align: center;
   list-style-type: none;
 }
 
-nav li {
+.nav-menu li {
   display: inline;
   margin: 0 1rem;
 }
 
-nav a {
+.nav-menu a {
   color: white;
   text-decoration: none;
   font-size: 1rem;
   transition: color 0.3s;
 }
 
-nav a:hover {
+.nav-menu a:hover {
   color: #f1c40f;
 }
 
-/* Estilos responsivos */
 @media (max-width: 768px) {
-  nav li {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+  }
+
+  .nav-menu.active {
+    display: block;
+  }
+
+  .nav-menu li {
     display: block;
     margin: 1rem 0;
   }
 }
-
-
-/* .offLi{
-  color: #a1a1a1;
-}
-
-.onLi{
-  color: fff;
-} */
